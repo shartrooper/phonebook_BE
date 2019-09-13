@@ -1,0 +1,37 @@
+//GET request for person with id 5.
+GET http://localhost:3001/persons/5
+
+###
+//GET request for person with id 7. Hardcoded array does not contain one by default.
+GET http://localhost:3001/persons/7
+
+###
+//DELETE person with id 3.
+DELETE http://localhost:3001/persons/3
+
+###
+//CREATE a new person with its number.
+POST http://localhost:3001/persons
+Content-Type: application/json
+
+{
+    "name": "Restful Joe",
+    "number": "010-005-9988"
+}
+###
+//Attempt to create new person failed because of property missing
+POST http://localhost:3001/persons
+Content-Type: application/json
+
+{
+    "number": "010-005-9988"
+}
+###
+//Attempt to create new person failed because this name already exists in phonebook
+POST http://localhost:3001/persons
+Content-Type: application/json
+
+{
+    "name":"Arto Hellas",
+    "number": "010-005-9988"
+}
