@@ -1,17 +1,17 @@
 //GET request for person with id 5.
-GET http://localhost:3001/persons/5
+GET https://rocky-coast-07710.herokuapp.com/api/persons/5
 
 ###
 //GET request for person with id 7. Hardcoded array does not contain one by default.
-GET http://localhost:3001/persons/7
+GET https://rocky-coast-07710.herokuapp.com/api/persons/7
 
 ###
 //DELETE person with id 3.
-DELETE http://localhost:3001/persons/3
+DELETE https://rocky-coast-07710.herokuapp.com/api/persons/3
 
 ###
 //CREATE a new person with its number.
-POST http://localhost:3001/persons
+POST https://rocky-coast-07710.herokuapp.com/api/persons
 Content-Type: application/json
 
 {
@@ -20,7 +20,7 @@ Content-Type: application/json
 }
 ###
 //Attempt to create new person failed because of property missing
-POST http://localhost:3001/persons
+POST https://rocky-coast-07710.herokuapp.com/api/persons
 Content-Type: application/json
 
 {
@@ -28,7 +28,7 @@ Content-Type: application/json
 }
 ###
 //Attempt to create new person failed because this name already exists in phonebook
-POST http://localhost:3001/persons
+POST https://rocky-coast-07710.herokuapp.com/api/persons
 Content-Type: application/json
 
 {
