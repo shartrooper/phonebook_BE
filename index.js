@@ -52,8 +52,8 @@ app.get('/api/persons', (req, res) => {
 })
 
 app.get('/', (req, res) => {
-    let curtime = new Date().toString()
-    res.send(`<p>phonebook has info for ${persons.length} people</p><div>${curtime}</div>`)
+   let curtime = new Date().toString()
+   res.send(`<p>phonebook has info for ${persons.length} people</p><div>${curtime}</div>`)
 })
 
 app.get('/api/persons/:id', (request, response) => {
