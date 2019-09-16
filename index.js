@@ -12,6 +12,9 @@ app.listen(PORT, () => {
 })
 
 app.use(bodyParser.json())
+
+app.use(express.static('build'))
+
 morgan.token('body', function getBody(req) {
     return req.method === 'POST'? JSON.stringify(req.body): 'none';
 })
@@ -51,7 +54,7 @@ app.get('/api/persons', (req, res) => {
     res.json(persons)
 })
 
-app.get('/', (req, res) => {
+app.get('/info', (req, res) => {
    let curtime = new Date().toString()
    res.send(`<p>phonebook has info for ${persons.length} people</p><div>${curtime}</div>`)
 })
