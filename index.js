@@ -2,6 +2,14 @@ const express = require('express')
 const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const app = express()
+const cors = require('cors')
+
+app.use(cors())
+
+const PORT = process.env.PORT || 3001
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`)
+})
 
 app.use(bodyParser.json())
 morgan.token('body', function getBody(req) {
@@ -39,7 +47,7 @@ const generateRandId = () => {
         : Math.floor(Math.random() * 500)
 }
 
-app.get('/persons', (req, res) => {
+app.get('/api/persons', (req, res) => {
     res.json(persons)
 })
 
@@ -48,7 +56,7 @@ app.get('/', (req, res) => {
     res.send(`<p>phonebook has info for ${persons.length} people</p><div>${curtime}</div>`)
 })
 
-app.get('/persons/:id', (request, response) => {
+app.get('/api/persons/:id', (request, response) => {
     const id = Number(request.params.id)
     const person = persons.find(person => person.id === id)
 
@@ -59,14 +67,14 @@ app.get('/persons/:id', (request, response) => {
     }
 })
 
-app.delete('/persons/:id', (request, response) => {
+app.delete('/api/persons/:id', (request, response) => {
     const id = Number(request.params.id)
     console.log(id);
     persons = persons.filter(pr => pr.id !== id)
     response.status(204).end()
 })
 
-app.post('/persons', (request, response) => {
+app.post('/api/persons', (request, response) => {
 
     const body = request.body
 
@@ -93,7 +101,3 @@ app.post('/persons', (request, response) => {
     }
 })
 
-const PORT = 3001
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`)
-})
