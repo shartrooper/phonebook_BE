@@ -1,17 +1,32 @@
-//GET request for person with id 5.
-GET https://rocky-coast-07710.herokuapp.com/api/persons/5
-
+//GET request for person with id 5d80fcd90e435011302a0814.
+GET https://rocky-coast-07710.herokuapp.com/api/persons/5d80fcd90e435011302a0814
 ###
-//GET request for person with id 7. Hardcoded array does not contain one by default.
+//localhost
+GET http://localhost:3001/api/persons/5d80fcd90e435011302a0814
+###
+//GET request for person with inexistent id. 
 GET https://rocky-coast-07710.herokuapp.com/api/persons/7
-
 ###
-//DELETE person with id 3.
-DELETE https://rocky-coast-07710.herokuapp.com/api/persons/3
-
+//localhost
+GET http://localhost:3001/api/persons/7
+###
+//DELETE person with submitted id.
+DELETE https://rocky-coast-07710.herokuapp.com/api/persons/5d82468909fa660e3431a43d
+###
+//localhost
+DELETE http://localhost:3001/api/persons/5d8261a13ce9791470a5ec35
 ###
 //CREATE a new person with its number.
 POST https://rocky-coast-07710.herokuapp.com/api/persons
+Content-Type: application/json
+
+{
+    "name": "Restful Joe",
+    "number": "010-005-9988"
+}
+###
+//Localhost
+POST http://localhost:3001/api/persons
 Content-Type: application/json
 
 {
