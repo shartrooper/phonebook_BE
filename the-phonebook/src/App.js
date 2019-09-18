@@ -39,7 +39,7 @@ const App = () => {
                     return phoneService.updatePerson(id, changedNum)
                         .then((returnedNum) => setPersons(persons.map(person => person.id !== id ? person : returnedNum)))
                         .catch(error => {
-                            displayMsgBox({message: `Information of ${trimmed} has already been removed from server`,style:{ color: 'red',border: 'red 3px solid', fontSize: 18}})
+                            displayMsgBox({ message: `Information of ${trimmed} has already been removed from server`, style: { color: 'red', border: 'red 3px solid', fontSize: 18 } })
                             persons.filter(p => p !== p.id);
                         })
                         .finally(() => { setNewName(''); setNewNumber(''); });
@@ -56,7 +56,7 @@ const App = () => {
                     setNewNumber('');
                 })
                 .catch(err => console.log('invalid entry data', err))
-                .finally(() => displayMsgBox({message: `Added ${trimmed} to the phonebook`,style:{ color: 'green',border: 'green 3px solid', fontSize: 18}}));
+                .finally(() => displayMsgBox({ message: `Added ${trimmed} to the phonebook`, style: { color: 'green', border: 'green 3px solid', fontSize: 18 } }));
         }
     }
 
@@ -116,7 +116,7 @@ const App = () => {
 
 
     return (<div >
-        <h2 > Phonebook </h2> 
+        <h2 > Phonebook </h2>
         <Modal msg={messageBox} />
         <
             Filter filter={filter}
