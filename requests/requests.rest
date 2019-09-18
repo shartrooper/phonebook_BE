@@ -11,10 +11,10 @@ GET https://rocky-coast-07710.herokuapp.com/api/persons/7
 GET http://localhost:3001/api/persons/7
 ###
 //DELETE person with submitted id.
-DELETE https://rocky-coast-07710.herokuapp.com/api/persons/5d82468909fa660e3431a43d
+DELETE https://rocky-coast-07710.herokuapp.com/api/persons/5d8267dffcf1780fa0340363
 ###
 //localhost
-DELETE http://localhost:3001/api/persons/5d8261a13ce9791470a5ec35
+DELETE http://localhost:3001/api/persons/5d8267dffcf1780fa0340363
 ###
 //CREATE a new person with its number.
 POST https://rocky-coast-07710.herokuapp.com/api/persons
