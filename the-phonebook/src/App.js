@@ -56,7 +56,12 @@ const App = () => {
                     setNewNumber('');
                 })
                 .then(() => displayMsgBox({ message: `Added ${trimmed} to the phonebook`, style: { color: 'green', border: 'green 3px solid', fontSize: 18 } }))
-                .catch(err => console.log('invalid entry data', err))
+                .catch(err => { 
+                   console.log(err.response.data) 
+                   displayMsgBox({ message: err.response.data.error , style: { color: 'red', border: 'red 3px solid', fontSize: 18 } })
+                    setNewName('')
+                    setNewNumber('') 
+                })
         }
     }
 
