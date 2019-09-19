@@ -54,7 +54,8 @@ app.get('/api/persons', (req, res) => {
     Person.find({}).then(people => {
         res.json(people.map(person => person.toJSON()))
     })
-    .catch(err => response.status(404).end())
+        // eslint-disable-next-line no-unused-vars
+        .catch(_err => res.status(404).end())
 })
 
 app.get('/info', (req, res) => {
@@ -64,7 +65,7 @@ app.get('/info', (req, res) => {
     })
 })
 
-app.get('/api/persons/:id', (request, response,next) => {
+app.get('/api/persons/:id', (request, response, next) => {
     Person.findById(request.params.id)
         .then(person => {
             if (person) {
@@ -76,7 +77,7 @@ app.get('/api/persons/:id', (request, response,next) => {
         .catch(error => next(error))
 })
 
-app.delete('/api/persons/:id', (request, response,next) => {
+app.delete('/api/persons/:id', (request, response, next) => {
     Person.findByIdAndDelete(request.params.id)
         .then(result => {
             (result) ?
@@ -92,7 +93,7 @@ app.delete('/api/persons/:id', (request, response,next) => {
 })
 
 
-app.post('/api/persons', (request, response,next) => {
+app.post('/api/persons', (request, response, next) => {
 
     const body = request.body
 
@@ -101,38 +102,38 @@ app.post('/api/persons', (request, response,next) => {
             error: 'Missing name or number'
         })
     }
-    //else if (!(persons.filter(person => person.name === body.name).length === 0))          
+    //else if (!(persons.filter(person => person.name === body.name).length === 0))
     else {
         //Person.find({ name: body.name })
-          //  .then(res => {
-            //    return res.length === 0
-              //      ?
-              //      (() => {
-                        const person = new Person({
-                            name: body.name,
-                            number: body.number,
-                            //id: generateRandId()
-                        });
+        //  .then(res => {
+        //    return res.length === 0
+        //      ?
+        //      (() => {
+        const person = new Person({
+            name: body.name,
+            number: body.number,
+            //id: generateRandId()
+        });
 
-                        person.save().then(savedPerson =>
-                            savedPerson.toJSON())
-                            .then(savedAndFormattedPerson =>
-                                response.json(savedAndFormattedPerson))
-                            .catch(error => next(error))
-                        //persons = persons.concat(person)
-                        //return response.json(person)
-//                    })()
-//                    :
-//                    response.status(204).end()
-                //response.status(400).json({
-                //    error: 'The name already exists in the phonebook'
-                //})
-//            })
-//            .catch(err => response.status(404).end())
+        person.save().then(savedPerson =>
+            savedPerson.toJSON())
+            .then(savedAndFormattedPerson =>
+                response.json(savedAndFormattedPerson))
+            .catch(error => next(error))
+        //persons = persons.concat(person)
+        //return response.json(person)
+        //                    })()
+        //                    :
+        //                    response.status(204).end()
+        //response.status(400).json({
+        //    error: 'The name already exists in the phonebook'
+        //})
+        //            })
+        //            .catch(err => response.status(404).end())
     }
 })
 
-app.put(`/api/persons/:id`, (request, response,next) => {
+app.put(`/api/persons/:id`, (request, response, next) => {
     Person.findOneAndUpdate({ name: request.body.name }, { number: request.body.number }, { new: true })
         .then(person => {
             response.json(person.toJSON())
