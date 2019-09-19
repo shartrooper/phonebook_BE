@@ -10,7 +10,7 @@
     "build:new": "mkdir build && cd the-phonebook && npm run build && xcopy /s build C:\\Users\\Marko\\Documents\\github-reps\\phonebook_BE\\build",
     "build:ui": "rd /s /q build && npm run build:new",
     "deploy": "git push heroku master",
-    "logs:prod": "heroku logs --tail"
+    "logs:prod": "heroku logs --tail",
   },
   "repository": {
     "type": "git",
@@ -37,6 +37,12 @@
     "morgan": "^1.9.1"
   },
   "devDependencies": {
+    "eslint": "^6.4.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
     "nodemon": "^1.19.2"
   }
 }
