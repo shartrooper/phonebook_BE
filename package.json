@@ -10,7 +10,7 @@
     "build:new": "mkdir build && cd the-phonebook && npm run build && xcopy /s build C:\\Users\\Marko\\Documents\\github-reps\\phonebook_BE\\build",
     "build:ui": "rd /s /q build && npm run build:new",
     "deploy": "git push heroku master",
-    "logs:prod": "heroku logs --tail",
+    "logs:prod": "heroku logs --tail"
   },
   "repository": {
     "type": "git",
